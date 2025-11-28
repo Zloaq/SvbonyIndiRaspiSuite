@@ -164,5 +164,12 @@ sudo ldconfig
 **`indi_setprop`（プロパティ設定）**
 - 基本書式  
   ```
-  indi_setprop "<パラメータ名>=<入れたい値>"
+  indi_setprop "<パラメータ名>=<設定したい値>"
   ```
+
+- 保存ファイル名  
+  ```
+  SVBONY CCD <デバイス名>.CCD_FILE_PATH.FILE_PATH=<filepath>  
+  これは直接変更できなかった。
+  ```
+  
