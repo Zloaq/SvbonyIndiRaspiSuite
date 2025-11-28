@@ -14,15 +14,16 @@ INDI サーバー を用いて Svbony カメラの撮像を
 基本的に上から順に実行します。
 
 - `start_server_indi.sh`  
-   INDI サーバーを起動し、接続されているデバイスの名前を "$HOME/.svbony_device" に保存。
+   INDI サーバーを起動し、  
+   接続されているデバイスの名前を "$HOME/.svbony_device" に保存。
 
 - `set_properties_indi.sh`  
-   カメラの gain や冷却、ファイル保存先・命名ルール等を設定するスクリプト。
+   カメラの gain や冷却、ファイル保存先・命名ルール等を設定するスクリプト。  
    意図に合わせて編集する。
 
 - `capture_image_indi.sh [exptime]`  
-   積分時間を引数に取り、保存されたファイルを検出し、saods9 に xpaset で飛ばします。
-   xpaset いらない人はごめんコメントアウトしといて。
+   積分時間を引数に取り、保存されたファイルを検出し、saods9 に xpaset で飛ばします。  
+   xpaset いらない人はごめんコメントアウトしといて。  
    これを編集して、ファイル名を毎回指示するのもありだと思う。
 
 - `end_server_indi.sh`  
