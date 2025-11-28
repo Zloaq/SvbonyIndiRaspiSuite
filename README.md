@@ -6,6 +6,30 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
 
 
 ---
+## 基本的な使用の流れ
+
+1. **(初回のみ)**  
+   下記の「インストール」手順に従って  
+   saods9 と xpa-tools をインストール ( fits画像の表示と通信コマンド )  
+   INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。
+
+2. **カメラを接続**  
+   Svbony カメラを Raspberry Pi の USB ポートに接続する。
+
+3. **INDI サーバーを起動**  
+   こいつらを順番に実行したら準備完了。  
+   `./start_server_indi.sh`  
+   `./set_properties_indi.sh`  
+   
+4. **撮像**  
+    ds9 でも起動して、取りたい分だけ撮像  
+    `ds9 &`
+    `./capture_image_indi.sh [exptime]`
+
+5. **終了**  
+    `./update_from_github.sh`  
+
+---
 
 ## スクリプト一覧
 
@@ -37,28 +61,7 @@ INDI サーバー を用いて Svbony カメラの撮像を
 
 ---
 
-## 基本的な使用の流れ
 
-1. **(初回のみ)**  
-   下記の「インストール」手順に従って  
-   saods9 と xpa-tools をインストール ( fits画像の表示と通信コマンド )  
-   INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。
-
-2. **カメラを接続**  
-   Svbony カメラを Raspberry Pi の USB ポートに接続する。
-
-3. **INDI サーバーを起動**  
-   リポジトリ直下で  
-   `./start_server_indi.sh`  
-   `./set_properties_indi.sh`  
-   
-4. **撮像**  
-    取りたい分だけ撮像  
-    `./capture_image_indi.sh [exptime]`
-
-5. **終了**  
-    `update_from_github.sh`  
----
 
 ## インストール（最初の1回だけ、コピペで実行OK）
 
@@ -143,4 +146,23 @@ sudo make install
 sudo ldconfig
 ```
 
+---
+## indi の基本的なコマンドの使い方
 
+**`indi_getprop`（プロパティ確認）**
+- 全部表示  
+  ```
+  indi_getprop
+  ```
+- 一部表示  
+  ```
+  indi_getprop "<パラメータ名>"
+  ```
+
+
+
+**`indi_setprop`（プロパティ設定）**
+- 基本書式  
+  ```
+  indi_setprop "<パラメータ名>=<入れたい値>"
+  ```
