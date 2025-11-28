@@ -1,17 +1,71 @@
-# INDI + Svbony Setup (Raspberry Pi)
+# INDI + SVBONY Setup (Raspberry Pi)
 
-Raspberry Pi 上で INDI と Svbony カメラを使うためのセットアップと撮像手順のまとめ。  
-インストールは最初の 1 回だけで、以降は撮像スクリプトのみで運用できる。
-
-
-
-
-
+Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアップと撮像手順のまとめ。
+コマンドラインから撮像できるようにするためのものです。
+静止画像モードに特化しています。
 
 
 ---
 
+## スクリプト一覧
+
+INDI サーバー を用いて Svbony カメラの撮像を
+コマンドラインから簡単に扱うためのシェルスクリプトが入っています。
+基本的に上から順に実行します。
+
+- `start_server_indi.sh`  
+  INDI サーバーを起動し、接続されているデバイスの名前を "$HOME/.svbony_device" に保存。
+
+- `set_properties_indi.sh`  
+  カメラの gain や冷却、ファイル保存先・命名ルール等を設定するスクリプト。
+  意図に合わせて編集する。
+
+- `capture_image_indi.sh [exptime]`
+  積分時間を引数に取り、保存されたファイルを検出し、saods9 に xpaset で飛ばします。
+  xpaset いらない人はごめんコメントアウトしといて。
+  これを編集して、ファイル名を毎回指示するのもありだと思う。
+
+- `end_server_indi.sh`  
+  起動中の INDI サーバーを停止するスクリプト。 
+  全て終了するときに実行。
+  
+
+- `update_from_github.sh`  
+  このリポジトリを GitHub の最新状態に更新するためのスクリプト。  
+  バグ修正や機能追加を取り込みたいときに実行します。
+
+---
+
+## 基本的な使用の流れ
+
+1. **(初回のみ)** 
+    下記の「インストール」手順に従って 
+    saods9 と xpa-tools をインストール ( fits画像の表示と通信コマンド )
+    INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。
+
+2. **カメラを接続**  
+   Svbony カメラを Raspberry Pi の USB ポートに接続する。
+
+3. **INDI サーバーを起動**  
+   リポジトリ直下で:
+   
+   `./start_server_indi.sh`
+   `./set_properties_indi.sh`
+   
+4. **撮像**
+    取りたい分だけ撮像
+    `./capture_image_indi.sh [exptime]`
+
+5. **終了**
+    `update_from_github.sh`
+---
+
 ## インストール（最初の1回だけ、コピペで実行OK）
+
+**saods9, xpa-tools のインストール**
+`sudo apt install saods9 xpa-tools`
+
+**INDI 本体と 3rdparty、Svbony ドライバ群のビルド・インストール**
 
 ```bash
 #0. 先にまとめて apt install
