@@ -9,18 +9,18 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
 
 ## スクリプト一覧
 
-INDI サーバー を用いて Svbony カメラの撮像を
-コマンドラインから簡単に扱うためのシェルスクリプトが入っています。
+INDI サーバー を用いて Svbony カメラの撮像を  
+コマンドラインから簡単に扱うためのシェルスクリプトが入っています。  
 基本的に上から順に実行します。
 
 - `start_server_indi.sh`  
    INDI サーバーを起動し、接続されているデバイスの名前を "$HOME/.svbony_device" に保存。
 
-- `set_properties_indi.sh` 
+- `set_properties_indi.sh`  
    カメラの gain や冷却、ファイル保存先・命名ルール等を設定するスクリプト。
    意図に合わせて編集する。
 
-- `capture_image_indi.sh [exptime]` 
+- `capture_image_indi.sh [exptime]`  
    積分時間を引数に取り、保存されたファイルを検出し、saods9 に xpaset で飛ばします。
    xpaset いらない人はごめんコメントアウトしといて。
    これを編集して、ファイル名を毎回指示するのもありだと思う。
@@ -49,15 +49,15 @@ INDI サーバー を用いて Svbony カメラの撮像を
 3. **INDI サーバーを起動**  
    リポジトリ直下で:
    
-   `./start_server_indi.sh`
-   `./set_properties_indi.sh`
+   `./start_server_indi.sh`  
+   `./set_properties_indi.sh`  
    
-4. **撮像**
-    取りたい分だけ撮像
+4. **撮像**  
+    取りたい分だけ撮像  
     `./capture_image_indi.sh [exptime]`
 
-5. **終了**
-    `update_from_github.sh`
+5. **終了**  
+    `update_from_github.sh`  
 ---
 
 ## インストール（最初の1回だけ、コピペで実行OK）
