@@ -38,7 +38,7 @@ INDI サーバー を用いて Svbony カメラの撮像を
 
 ## 基本的な使用の流れ
 
-1. **(初回のみ)** 
+1. **(初回のみ)**  
    下記の「インストール」手順に従って 
    saods9 と xpa-tools をインストール ( fits画像の表示と通信コマンド )
    INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。
@@ -47,8 +47,7 @@ INDI サーバー を用いて Svbony カメラの撮像を
    Svbony カメラを Raspberry Pi の USB ポートに接続する。
 
 3. **INDI サーバーを起動**  
-   リポジトリ直下で:
-   
+   リポジトリ直下で  
    `./start_server_indi.sh`  
    `./set_properties_indi.sh`  
    
