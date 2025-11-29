@@ -11,13 +11,21 @@ fi
 DEVICE=$(cat "$DEVICE_FILE")
 
 
-# 引数はちょうど1個だけ（露光時間）
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <exposure_value>"
+# 引数パース (--display は順不同, 残り1つを露光時間とみなす)
+SHOW_DS9=0
+EXPTIME=""
+for arg in "$@"; do
+    if [ "$arg" = "--display" ]; then
+        SHOW_DS9=1
+    else
+        EXPTIME="$arg"
+    fi
+done
+
+if [ -z "$EXPTIME" ]; then
+    echo "Usage: $0 <exposure_value> [--ds9]"
     exit 1
 fi
-
-EXPTIME="$1"
 
 # UPLOAD_DIR を取得
 prop=$(indi_getprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR")
@@ -66,7 +74,9 @@ done
 
 echo "検出したファイル名: $newest"
 
-xpaset -p ds9 file "$newest"
-sleep 0.2
-xpaset -p ds9 scale zscale
-xpaset -p ds9 zoom to fit
+if [ $SHOW_DS9 -eq 1 ]; then
+    xpaset -p ds9 file "$newest"
+    sleep 0.2
+    xpaset -p ds9 scale zscale
+    xpaset -p ds9 zoom to fit
+fi
