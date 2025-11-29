@@ -172,6 +172,6 @@ sudo ldconfig
   SVBONY CCD <デバイス名>.CCD_FILE_PATH.FILE_PATH=<filepath>  
   これは直接変更できなかった。
   SVBONY CCD <デバイス名>.UPLOAD_SETTINGS.UPLOAD_PREFIX=IMAGE_XXX  
-  保存ファイル名を変更するなら、これを編集するコマンドを送る。
+  保存ファイル名を変更するなら、こっちのパラメータを変更する。  
   ```
   
