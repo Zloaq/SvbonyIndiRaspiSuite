@@ -1,4 +1,4 @@
-# INDI + SVBONY Setup (Raspberry Pi)
+# SVBONY + INDI Setup for Raspberry Pi
 
 Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアップと撮像手順のまとめ。  
 コマンドラインから撮像できるようにするためのものです。  
