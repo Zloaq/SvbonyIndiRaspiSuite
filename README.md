@@ -12,7 +12,7 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
    下記の「インストール」手順に従って  
    INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。  
    (使う人は saods9 と xpa-tools も install)  
-   このリポジトリを好きなディレクトリに clone したらスクリプトが入る。
+   このリポジトリを好きなディレクトリに clone したらスクリプトが入る。  
    `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`
 
 2. **カメラを接続**  
