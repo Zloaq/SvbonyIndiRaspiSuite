@@ -1,7 +1,7 @@
 # INDI + SVBONY Setup (Raspberry Pi)
 
-Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアップと撮像手順のまとめ。
-コマンドラインから撮像できるようにするためのものです。
+Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアップと撮像手順のまとめ。  
+コマンドラインから撮像できるようにするためのものです。  
 静止画像モードに特化しています。
 
 
