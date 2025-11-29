@@ -72,7 +72,7 @@ INDI サーバー を用いて Svbony カメラの撮像を
 sudo apt install saods9 xpa-tools
 ```
 
-**INDI 本体と 3rdparty、Svbony ドライバ群のビルド・インストール**  
+**INDI 本体と 3rdparty, Svbony ドライバ群のビルド・インストール**  
 
 ```bash
 #0. 先にまとめて apt install
