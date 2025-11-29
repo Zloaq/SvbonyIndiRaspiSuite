@@ -10,23 +10,24 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
 
 1. **(初回のみ)**  
    下記の「インストール」手順に従って  
-   saods9 と xpa-tools をインストール ( fits画像の表示と通信コマンド )  
    INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。
+   (使う人は saods9 と xpa-tools も install)
 
 2. **カメラを接続**  
    Svbony カメラを Raspberry Pi の USB ポートに接続する。
 
 3. **INDI サーバーを起動**  
-   こいつらを順番に実行したら準備完了。  
    `./start_server_indi.sh`  
+
+4. **撮像の設定**
+    これを編集して実行。  
    `./set_properties_indi.sh`  
    
-4. **撮像**  
-    ds9 でも起動して、取りたい分だけ撮像  
-    `ds9 &`  
-    `./capture_image_indi.sh [exptime]`
+5. **撮像**  
+    取りたい分だけ撮像 (積分時間 と ds9に表示するオプション)
+    `./capture_image_indi.sh [exptime] [--display]`
 
-5. **終了**  
+6. **終了**  
     `./update_from_github.sh`  
 
 ---
@@ -43,21 +44,20 @@ INDI サーバー を用いて Svbony カメラの撮像を
 
 - `set_properties_indi.sh`  
    カメラの gain や冷却、ファイル保存先・命名ルール等を設定するスクリプト。  
-   意図に合わせて編集する。
+   意図に合わせて編集して、実行する。
 
-- `capture_image_indi.sh [exptime]`  
-   積分時間を引数に取り、保存されたファイルを検出し、saods9 に xpaset で飛ばします。  
-   xpaset いらない人はごめんコメントアウトしといて。  
-   これを編集して、ファイル名を毎回指示するのもありだと思う。 
+- `capture_image_indi.sh [exptime] [--display]`  
+   積分時間を引数に取り、積分が開始されます。  
+   --display をつけると xpaset で ds9 に飛ばします。  
 
 - `end_server_indi.sh`  
    起動中の INDI サーバーを停止するスクリプト。 
    全て終了するときに実行。
-  
 
 - `update_from_github.sh`  
    このリポジトリを GitHub の最新状態に更新するためのスクリプト。  
    バグ修正や機能追加を取り込みたいときに実行します。
+   GitHub 上と全く同じ状態になります。
 
 ---
 
