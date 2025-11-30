@@ -10,13 +10,13 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
 
 1. **(初回のみ)**  
    下記の「インストール」手順に従って  
-   INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。  
-   (使う人は saods9 と xpa-tools も install)  
-   このリポジトリを好きなディレクトリに clone したらスクリプトが入る。  
-   `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`
+   - INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。  
+   - 使う人は saods9 と xpa-tools も install  
+   - このリポジトリを好きなディレクトリに clone したらスクリプトが入る。  
+   `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`  
 
 2. **カメラを接続**  
-   Svbony カメラを Raspberry Pi の USB ポートに接続する。
+   Svbony カメラを Raspberry Pi の USB ポートに接続する。  
 
 3. **INDI サーバーを起動**  
    `./start_server_indi.sh`  
@@ -26,8 +26,8 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
    `./set_properties_indi.sh`  
    
 5. **撮像**  
-    取りたい分だけ撮像 (積分時間 と ds9に表示するオプション)
-    `./capture_image_indi.sh [exptime] [--display]`
+    取りたい分だけ撮像 (積分時間 と ds9に表示するオプション)  
+    `./capture_image_indi.sh [exptime] [--display]`  
 
 6. **終了**  
     `./update_from_github.sh`  
