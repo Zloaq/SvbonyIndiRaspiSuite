@@ -1,6 +1,6 @@
 # SVBONY + INDI Setup for Raspberry Pi
 
-Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアップと撮像手順のまとめ。  
+ラズベリーパイ 上で INDI と SVBONY カメラを使うためのセットアップと撮像手順のまとめ。  
 コマンドラインから撮像できるようにするためのものです。  
 静止画像モードに特化しています。
 
@@ -16,7 +16,7 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
    `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`  
 
 2. **カメラを接続**  
-   Svbony カメラを Raspberry Pi の USB ポートに接続する。  
+   Svbony カメラを ラズパイ の USB ポートに接続する。  
 
 3. **INDI サーバーを起動**  
    `./start_server_indi.sh`  
