@@ -30,7 +30,7 @@ Raspberry Pi 上で INDI と SVBONY カメラを使うためのセットアッ�
     `./capture_image_indi.sh [exptime] [--display]`  
 
 6. **終了**  
-    `./update_from_github.sh`  
+    `./end_server_indi.sh`  
 
 ---
 
