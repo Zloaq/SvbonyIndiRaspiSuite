@@ -54,9 +54,10 @@ fi
 indi_setprop "${DEVICE}.CCD_EXPOSURE.CCD_EXPOSURE_VALUE=${EXPTIME}"
 sleep ${EXPTIME}
 
+
+# 保存された最新ファイルを検出
 TIMEOUT=20
 elapsed=0
-
 while true; do
     newest=$(ls -t "$WATCH_DIR"/*.fits 2>/dev/null | head -n 1)
     if [ -n "$newest" ]; then

@@ -12,7 +12,8 @@ fi
 DEVICE=$(cat "$DEVICE_FILE")
 echo "Using DEVICE: $DEVICE"
 
-prop=$(indi_getprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR")
+#サーバー立ち上げ忘れ防止
+prop=$(indi_getprop "${DEVICE}.CONNECTION.CONNECT")
 if [ -z "$prop" ]; then
     echo "start_server_indi.sh でサーバーを起動してください"
     exit 1
