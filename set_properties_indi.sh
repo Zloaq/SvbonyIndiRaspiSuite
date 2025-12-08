@@ -8,6 +8,13 @@ if [ ! -f "$DEVICE_FILE" ]; then
     echo "先に svbony_init.sh を実行してください"
     exit 1
 fi
+
+prop=$(indi_getprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR")
+if [ -z "$prop" ]; then
+    echo "start_server_indi.sh でサーバーを起動してください"
+    exit 1
+fi
+
 DEVICE=$(cat "$DEVICE_FILE")
 echo "Using DEVICE: $DEVICE"
 
