@@ -77,12 +77,13 @@ indi_setprop "${DEVICE}.FLIP.FLIP_VERTICAL=Off"
 
 
 #----ファイル保存に関するコマンド----
+# ↓ これで保存するディレクトリを編集する
 indi_setprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR=$HOME"
 
 #ファイル名(${DEVICE}.CCD_FILE_PATH.FILE_PATH)はUPLOAD_PREFIXに沿って積分後に勝手に更新される
 #${DEVICE}.CCD_FILE_PATH.FILE_PATHは次の画像名ではなくて最後に保存したファイル名っぽい
 #${DEVICE}.CCD_FILE_PATH.FILE_PATHを直接変更することはできない
-# ↓ これはだめ
+# ↓ これを編集しても保存ファイル名は変更できない
 #indi_setprop "${DEVICE}.CCD_FILE_PATH.FILE_PATH=/home/pi/svbony/data/IMAGE_008.fits"
-# ↓ これで編集する
+# ↓ これを編集することで保存ファイル名を変更できる
 indi_setprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_PREFIX=IMAGE_XXX"
