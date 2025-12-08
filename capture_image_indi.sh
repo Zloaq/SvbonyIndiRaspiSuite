@@ -1,11 +1,11 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 DEVICE_FILE="$HOME/.svbony_device"
 
 # DEVICE をファイルから読む
 if [ ! -f "$DEVICE_FILE" ]; then
     echo "ERROR: $DEVICE_FILE がありません"
-    echo "先に svbony_init.sh を実行してください"
+    echo "start_server_indi.sh を実行してください"
     exit 1
 fi
 DEVICE=$(cat "$DEVICE_FILE")
@@ -23,7 +23,7 @@ for arg in "$@"; do
 done
 
 if [ -z "$EXPTIME" ]; then
-    echo "Usage: $0 <exposure_value> [--ds9]"
+    echo "Usage: $0 <exposure_value> [--display]"
     exit 1
 fi
 
@@ -31,6 +31,7 @@ fi
 prop=$(indi_getprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR")
 if [ -z "$prop" ]; then
     echo "ERROR: UPLOAD_DIR を取得できませんでした"
+    echo "start_server_indi.sh でサーバーを起動してください"
     exit 1
 fi
 

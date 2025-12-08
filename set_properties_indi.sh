@@ -82,5 +82,7 @@ indi_setprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR=$HOME"
 #ファイル名(${DEVICE}.CCD_FILE_PATH.FILE_PATH)はUPLOAD_PREFIXに沿って積分後に勝手に更新される
 #${DEVICE}.CCD_FILE_PATH.FILE_PATHは次の画像名ではなくて最後に保存したファイル名っぽい
 #${DEVICE}.CCD_FILE_PATH.FILE_PATHを直接変更することはできない
-#indi_setprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_PREFIX=IMAGE_XXX"
+# ↓ これはだめ
 #indi_setprop "${DEVICE}.CCD_FILE_PATH.FILE_PATH=/home/pi/svbony/data/IMAGE_008.fits"
+# ↓ これで編集する
+indi_setprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_PREFIX=IMAGE_XXX"
