@@ -9,14 +9,14 @@ if [ ! -f "$DEVICE_FILE" ]; then
     exit 1
 fi
 
+DEVICE=$(cat "$DEVICE_FILE")
+echo "Using DEVICE: $DEVICE"
+
 prop=$(indi_getprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR")
 if [ -z "$prop" ]; then
     echo "start_server_indi.sh でサーバーを起動してください"
     exit 1
 fi
-
-DEVICE=$(cat "$DEVICE_FILE")
-echo "Using DEVICE: $DEVICE"
 
 
 #----ほとんど変えないであろう設定-------
