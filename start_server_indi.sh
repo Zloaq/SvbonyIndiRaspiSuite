@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-DEVICE_FILE="$HOME/.svbony_device"
+DEVICE_FILE="$HOME/.svbony_config"
 
 # indiserver 起動
 if pgrep -f indiserver >/dev/null 2>&1; then
@@ -19,6 +19,11 @@ if [ -z "$devline" ]; then
 fi
 
 DEVICE="${devline%%.*}"
-echo "$DEVICE" > "$DEVICE_FILE"
+
+cat > "$DEVICE_FILE" << EOF
+DEVICE=$DEVICE
+ROTATE_IMAGE_90=Off
+EOF
+
 echo "Detected DEVICE: $DEVICE"
-echo "Saved to $DEVICE_FILE"
+echo "Saved config to $DEVICE_FILE"

@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-DEVICE_FILE="$HOME/.svbony_device"
+DEVICE_FILE="$HOME/.svbony_config"
 
 # DEVICE をファイルから読む
 if [ ! -f "$DEVICE_FILE" ]; then
@@ -9,7 +9,7 @@ if [ ! -f "$DEVICE_FILE" ]; then
     exit 1
 fi
 
-DEVICE=$(cat "$DEVICE_FILE")
+DEVICE=$(grep '^DEVICE=' "$DEVICE_FILE" | head -n1 | cut -d= -f2-)
 echo "Using DEVICE: $DEVICE"
 
 #サーバー立ち上げ忘れ防止
@@ -67,6 +67,8 @@ indi_setprop "${DEVICE}.CCD_FAST_TOGGLE.INDI_ENABLED=Off"
 indi_setprop "${DEVICE}.CCD_FAST_TOGGLE.INDI_DISABLED=On"
 indi_setprop "${DEVICE}.CCD_FAST_COUNT.FRAMES=1"
 
+#indi_setprop "${DEVICE}.ACTIVE_DEVICES.ACTIVE_TELESCOPE=Telescope Simulator"
+
 #----要チェック一応先生に確認----
 indi_setprop "${DEVICE}.CCD_CONTROLS.Gain=0"
 indi_setprop "${DEVICE}.CCD_CONTROLS.Contrast=50"
@@ -83,6 +85,9 @@ indi_setprop "${DEVICE}.CCD_CONTROLS.Bad pixel correction threshold=60"
 indi_setprop "${DEVICE}.FLIP.FLIP_HORIZONTAL=Off"
 indi_setprop "${DEVICE}.FLIP.FLIP_VERTICAL=Off"
 
+#----最後(FLIP適用後)に反時計周りに画像を 90度 回転----
+ROTATE_IMAGE_90=Off
+
 
 #----ファイル保存に関するコマンド----
 # ↓ これで保存するディレクトリを編集する
@@ -95,3 +100,10 @@ indi_setprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_DIR=$HOME"
 #indi_setprop "${DEVICE}.CCD_FILE_PATH.FILE_PATH=/home/pi/svbony/data/IMAGE_008.fits"
 # ↓ これを編集することで保存ファイル名を変更できる
 indi_setprop "${DEVICE}.UPLOAD_SETTINGS.UPLOAD_PREFIX=IMAGE_XXX"
+
+
+#----90度回転するのかを保存----
+tmp="${DEVICE_FILE}.tmp.$$"
+grep -v '^ROTATE_IMAGE_90=' "$DEVICE_FILE" > "$tmp"
+echo "ROTATE_IMAGE_90=$ROTATE_IMAGE_90" >> "$tmp"
+mv "$tmp" "$DEVICE_FILE"
