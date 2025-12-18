@@ -27,7 +27,7 @@
    
 5. **撮像**  
     取りたい分だけ撮像 (積分時間 と ds9に表示するオプション)  
-    `./capture_image_indi.sh [exptime] [--display]`  
+    `./capture_image_indi.py [exptime] [--display]`  
 
 6. **終了**  
     `./end_server_indi.sh`  
@@ -48,7 +48,7 @@ INDI サーバー を用いて Svbony カメラの撮像を
    カメラの gain や冷却、ファイル保存先・命名ルール等を設定するスクリプト。  
    意図に合わせて編集して、実行する。
 
-- `capture_image_indi.sh [exptime] [--display]`  
+- `capture_image_indi.py [exptime] [--display]`  
    積分時間を引数に取り、積分が開始されます。  
    --display をつけると xpaset で ds9 に飛ばします。  
 
