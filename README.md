@@ -72,7 +72,7 @@ INDI サーバー を用いて Svbony カメラの撮像を
 sudo apt install saods9 xpa-tools
 ```
 
-**INDI 本体と 3rdparty, Svbony ドライバ群のビルド・インストール**  
+**INDI 本体と indi-3rdparty, Svbony ドライバ群のビルド・インストール**  
 
 ```bash
 #0. 先にまとめて apt install
@@ -83,6 +83,7 @@ sudo apt install git cmake build-essential libusb-1.0-0-dev zlib1g-dev \
   libgps-dev libgphoto2-dev libzmq3-dev libudev-dev
 
 #1. INDI 本体のビルド & インストール
+# apt 版の indi だとバージョンが古くて indi-3rdparty 系がビルドできない
 #sudo apt update
 #sudo apt install git cmake build-essential libusb-1.0-0-dev zlib1g-dev
 git clone https://github.com/indilib/indi.git
@@ -102,47 +103,23 @@ sudo ldconfig
 which indiserver
 indiserver -v
 
-#2. INDI 3rdparty のビルド & インストール
+#2. Svbony 関連ドライバの個別ビルド & インストール
+# 1) indi-svbony ドライバ本体
 cd ~
 git clone https://github.com/indilib/indi-3rdparty.git
-cd indi-3rdparty
-mkdir build
-cd build
-#sudo apt install libraw-dev
-#sudo apt install libftdi1-dev
-#sudo apt install libdc1394-dev
-#sudo apt install libgps-dev
-#sudo apt install libgphoto2-dev libzmq3-dev
-#sudo apt install libudev-dev
-cmake ..
-make -j4
-sudo make install
-sudo ldconfig
-
-#3. Svbony 関連ドライバの個別ビルド & インストール
-# 1) libsvbony
-cd ~/indi-3rdparty
-mkdir -p build-libsvbony
-cd build-libsvbony
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local ../libsvbony
-make -j4
-sudo make install
-sudo ldconfig
-
-# 2) libsvbonycam
-cd ~/indi-3rdparty
-mkdir -p build-libsvbonycam
-cd build-libsvbonycam
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local ../libsvbonycam
-make -j4
-sudo make install
-sudo ldconfig
-
-# 3) indi-svbony ドライバ本体
 cd ~/indi-3rdparty
 mkdir -p build-indi-svbony
 cd build-indi-svbony
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local ../indi-svbony
+make -j4
+sudo make install
+sudo ldconfig
+
+# 2) libsvbony
+cd ~/indi-3rdparty
+mkdir -p build-libsvbony
+cd build-libsvbony
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local ../libsvbony
 make -j4
 sudo make install
 sudo ldconfig
