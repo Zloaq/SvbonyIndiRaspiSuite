@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-DEVICE_FILE="$HOME/.svbony_device"
+DEVICE_FILE="$HOME/.svbony_config"
 
 # DEVICE をファイルから読む
 if [ ! -f "$DEVICE_FILE" ]; then
@@ -8,7 +8,12 @@ if [ ! -f "$DEVICE_FILE" ]; then
     echo "先に svbony_init.sh を実行してください"
     exit 1
 fi
-DEVICE=$(cat "$DEVICE_FILE")
+
+DEVICE=$(indi_getprop | grep -m1 "SVBONY CCD")
+if [ -z "$devline" ]; then
+    echo "ERROR: SVBONY CCD デバイスが見つかりませんでした"
+    exit 1
+fi
 
 indi_setprop "${DEVICE}.CONNECTION.DISCONNECT=On"
 sleep 1
