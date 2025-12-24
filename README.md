@@ -83,7 +83,7 @@ sudo apt install git cmake build-essential libusb-1.0-0-dev zlib1g-dev \
   libgps-dev libgphoto2-dev libzmq3-dev libudev-dev
 
 #1. INDI 本体のビルド & インストール
-# apt 版の indi だとバージョンが古くて indi-3rdparty 系がビルドできない
+# apt 版の indi だとバージョンが古くて indi-3rdparty 系がビルドできないっぽい
 #sudo apt update
 #sudo apt install git cmake build-essential libusb-1.0-0-dev zlib1g-dev
 git clone https://github.com/indilib/indi.git
