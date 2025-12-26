@@ -13,9 +13,9 @@
    - INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。  
    - 使う人は saods9 と xpa-tools も install  
 
-2. **このリポジトリの clone (初回のみ)**
-   - これを実行したら、そのディレクトリに撮像スクリプトとかが入る。
-   `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`
+2. **このリポジトリの clone (初回のみ)**  
+   - これを実行したら、そのディレクトリに撮像スクリプトとかが入る。  
+   `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`  
 
 3. **カメラを接続**  
    Svbony カメラを ラズパイ の USB ポートに接続する。  
