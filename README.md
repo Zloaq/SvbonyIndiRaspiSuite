@@ -34,7 +34,7 @@
     `./capture_image_indi.py [exptime] [--display]`  
 
 7. **終了**  
-    すべて終了するときに実行。
+    すべて終了するときに実行。  
     `./end_server_indi.sh`  
 
 ---
