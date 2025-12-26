@@ -20,7 +20,7 @@
 
 3. **カメラを接続**  
    Svbony カメラを ラズパイ の USB ポートに接続する。  
-   SvbonyIndiRaspiSuite ディレクトリに移動する。
+   (次のプログラムを実行するために SvbonyIndiRaspiSuite ディレクトリに移動する。)
 
 4. **INDI サーバーを起動**  
    `./start_server_indi.sh`  
