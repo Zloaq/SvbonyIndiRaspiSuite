@@ -14,7 +14,7 @@
    - 使う人は saods9 と xpa-tools も install  
 
 2. **このリポジトリの clone (初回のみ)**  
-   - これを実行したら、そのディレクトリに撮像スクリプトとかが入る。  
+   - これを実行したら、そのディレクトリに下記「スクリプト一覧」のやつが入る。  
    `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`  
 
 3. **カメラを接続**  
