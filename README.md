@@ -8,28 +8,30 @@
 ---
 ## 基本的な使用の流れ
 
-1. **(初回のみ)**  
+1. **INDI系のインストール (初回のみ)**  
    下記の「インストール」手順に従って  
    - INDI 本体と 3rdparty、Svbony ドライバ群をビルド・インストールする。  
    - 使う人は saods9 と xpa-tools も install  
-   - このリポジトリを好きなディレクトリに clone したらスクリプトが入る。  
-   `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`  
 
-2. **カメラを接続**  
+2. **このリポジトリの clone (初回のみ)**
+   - これを実行したら、そのディレクトリに撮像スクリプトとかが入る。
+   `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`
+
+3. **カメラを接続**  
    Svbony カメラを ラズパイ の USB ポートに接続する。  
 
-3. **INDI サーバーを起動**  
+4. **INDI サーバーを起動**  
    `./start_server_indi.sh`  
 
-4. **撮像の設定**  
+5. **撮像の設定**  
     これの中を編集して実行。  
    `./set_properties_indi.sh`  
    
-5. **撮像**  
+6. **撮像**  
     取りたい分だけ撮像 (積分時間 と ds9に表示するオプション)  
     `./capture_image_indi.py [exptime] [--display]`  
 
-6. **終了**  
+7. **終了**  
     `./end_server_indi.sh`  
 
 ---
