@@ -14,9 +14,10 @@
    - 使う人は saods9 と xpa-tools も install  
 
 2. **このリポジトリの clone (初回のみ)**  
-   - これを実行したら、そこに新しいディレクトリ SvbonyIndiRaspiSuite が作成されて、  
+   - `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`  
+   これを実行したら、そこに新しいディレクトリ SvbonyIndiRaspiSuite が作成されて、  
      そこに下記「スクリプト一覧」のやつが入る。  
-   `git clone https://github.com/Zloaq/SvbonyIndiRaspiSuite`  
+   
 
 3. **カメラを接続**  
    Svbony カメラを ラズパイ の USB ポートに接続する。  
@@ -26,7 +27,7 @@
    `./start_server_indi.sh`  
 
 5. **撮像の設定**  
-    これの中を編集して実行。  
+    `set_properties_indi.sh` の中を編集して実行。  
    `./set_properties_indi.sh`  
    
 6. **撮像**  
